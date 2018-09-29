@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="MergeSort/src"/>
+	<classpathentry kind="src" path="SudokuDAA/src/sudokudaa"/>
+	<classpathentry kind="output" path="MergeSort/bin"/>
+</classpath>
