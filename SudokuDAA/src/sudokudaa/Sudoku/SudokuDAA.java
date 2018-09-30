@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Iván
+ * @author Ivan
  * 
  * Sudoku por Backtraking
  * 
@@ -25,7 +25,8 @@ public class SudokuDAA {
     //Rellenar el tablero por teclado.
     public static int [][] inicializarTablero(){
         int [][] tableroPpal = new int [9][9];
-        Scanner entrada = new Scanner (System.in);
+        @SuppressWarnings("resource")
+		Scanner entrada = new Scanner (System.in);
         // Rellenar filas y columnas del tablero
         for(int i = 0; i<9 ; i++){
             for(int j = 0 ; j<9; j++){

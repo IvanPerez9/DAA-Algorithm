@@ -1,6 +1,17 @@
 package MergeSort;
 import java.util.Arrays;
+
+
 import java.util.Scanner;
+
+/**
+ * 
+ * @author ivan1
+ * 
+ * 
+ * 	Divide el array en dos, los ordena por separado y los vuelve a mezclar
+ * 
+ */
 
 public class MergeSort {
 

@@ -2,9 +2,16 @@ package BubbleSort;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+/**
+ * 
+ * @author ivan1
+ *
+ *
+ *	Se compara cada elemento con su siguiente y se ordena
+ *
+ */
 
-	// Se compara cada elemento con su siguiente y se ordena
+public class BubbleSort {
 	
 	public static void main(String[] args) {
 		
