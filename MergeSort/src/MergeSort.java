@@ -13,7 +13,7 @@ public class MergeSort {
 		int [] array = new int [elem];
 		int last = array.length;
 		
-		for (int x=0; x <elem; x++) {
+		for (int x=0; x<elem; x++) {
 		    System.out.println("Introduzca el elemento [" + x + "]");
 		    array[x] = consola.nextInt();
 		}
@@ -23,13 +23,39 @@ public class MergeSort {
 		MergeSort ejercicio = new MergeSort();
 		ejercicio.sort(array, 0, last);
 		
-		System.out.println("Su algoritmo ordenado");
+		System.out.println("Su array ordenado es: ");
+		ejercicio.mostrar(array);
 		
 	}
 	
 	public void merge (int [] array, int ini, int mitad , int last) { // Ordena las dos mitades 
 		
 		
+		int [] arrayAux = new int [array.length]; // Array auxiliar que va almacenando
+		for (int i = ini; i <= last; i++) {
+			arrayAux[i] = array[i];
+		}
+		
+		// Variables para recorrer
+		int i = ini;
+		int j = mitad +1 ;
+		int k = ini;
+		
+		while (i <= mitad && j <= last) {
+			if (arrayAux[i] <= arrayAux[j]) {
+				array[k] = arrayAux[i];
+				i++;
+			} else {
+				array[k] = arrayAux[j];
+				j++;
+			}
+			k++;
+		}
+		while(i<= mitad) {
+			array[k] = arrayAux[i];
+			k++;
+			i++;
+		}
 		
 	}
 	
@@ -44,10 +70,11 @@ public class MergeSort {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
+	public void mostrar (int [] arrayMuestra) {
+		int n = arrayMuestra.length;
+		for (int i=0; i<= n; i++) {
+			System.out.println(arrayMuestra[i]);
+		}
+	}
+
 }
