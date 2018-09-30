@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="MergeSort/src"/>
 	<classpathentry kind="src" path="SudokuDAA/src/sudokudaa"/>
+	<classpathentry kind="src" path="BubbleSort"/>
 	<classpathentry kind="output" path="MergeSort/bin"/>
 </classpath>

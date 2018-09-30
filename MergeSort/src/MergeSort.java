@@ -7,7 +7,7 @@ public class MergeSort {
 		
 		@SuppressWarnings("resource")
 		Scanner consola = new Scanner(System.in);
-		System.out.println("Cuantos elementos tendrá su array: " );
+		System.out.print("Cuantos elementos tendrá su array: " );
 		
 		int elem = consola.nextInt();
 		int [] array = new int [elem];
@@ -23,6 +23,7 @@ public class MergeSort {
 		MergeSort ejercicio = new MergeSort();
 		ejercicio.sort(array, 0, length-1);
 		
+		System.out.println();
 		System.out.println("Su array ordenado es: ");
 		ejercicio.mostrar(array);
 		
@@ -75,7 +76,7 @@ public class MergeSort {
 		
 		//Recorrer hasta menos 1 que sino se va de length
 		for (int i=0; i<= n-1; i++) {
-			System.out.println(arrayMuestra[i]);
+			System.out.print(arrayMuestra[i] + " ");
 		}
 	}
 
