@@ -3,7 +3,7 @@
 
 This program solves skyline problem.
 
-Example Input: 
+Input Example: 
 
 				 6
 
