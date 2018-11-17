@@ -1,6 +1,6 @@
-# sudokuDAA
-Practica 3 de DAA 2017
+# DAA-Algorithm
 
+<<<<<<< HEAD
 
 Ejemplo entrada:
 5 3 0 0 7 0 0 0 0
@@ -15,3 +15,5 @@ Ejemplo entrada:
 
 Ejemplo salida : 2 
 
+=======
+>>>>>>> f61647aee8da8914f9922b8fc7868eead94c1d5e

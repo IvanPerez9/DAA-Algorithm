@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package sudokudaa;
+package Sudoku;
 
 import java.util.Scanner;
 
 /**
  *
- * @author Iván
+ * @author Ivan
  * 
  * Sudoku por Backtraking
  * 
@@ -30,7 +25,8 @@ public class SudokuDAA {
     //Rellenar el tablero por teclado.
     public static int [][] inicializarTablero(){
         int [][] tableroPpal = new int [9][9];
-        Scanner entrada = new Scanner (System.in);
+        @SuppressWarnings("resource")
+		Scanner entrada = new Scanner (System.in);
         // Rellenar filas y columnas del tablero
         for(int i = 0; i<9 ; i++){
             for(int j = 0 ; j<9; j++){
@@ -62,11 +58,19 @@ public class SudokuDAA {
         return true;
     }
     
+    public static int Operacion (int posicion){
+	return (int) (posicion/3)*3;
+    }
+	
     // Prueba las distintas cajas 3x3 que se crean.
     public static boolean caja3x3 (int [][] tablero3 , int cajaCol , int cajaFila, int n){
-        for (int fila = 0; fila<3 ; fila++){
-            for (int col = 0; col<3 ; col++){
-                if (tablero3[cajaFila + fila][cajaCol + col] == n)
+        int fila33,col33;
+        fila33 = Operacion(cajaFila);
+        col33 = Operacion(cajaCol);
+	// Desde la columna o fila que empieza haga un cuadrado de 3x3.
+	for (int i = fila33; i<fila33+3 ; i++){
+            for (int j = col33; j<col33+3 ; j++){
+                if (tablero3[i][j] == n)
                     return false;
             }
         }
@@ -75,7 +79,7 @@ public class SudokuDAA {
     
     // Metodo comprobar. Combina los 3. Comprueba si se puede meter un numero en esa posición.
     public static boolean Comprobar (int [][] tablero, int fila , int col , int n, int longitud){
-        return (!columnaTest (tablero ,col,n, longitud) && !filaTest (tablero, fila, n, longitud) && !caja3x3(tablero, col, fila, n)) ;
+        return (columnaTest (tablero ,col,n, longitud) && filaTest (tablero, fila, n, longitud) && caja3x3(tablero, col, fila, n)) ;
     }
     
     
@@ -84,40 +88,43 @@ public class SudokuDAA {
         int contadorSoluciones = 0; 
         int auxFila , auxCol;
 		
+        // Cuando una casilla no está vacia.
         if (tablero[fila][col] !=0) {
             if ((fila==N-1) && (col==N-1)) { // Es el final
-                contadorSoluciones ++;
-                
+                contadorSoluciones ++; 
             }else {
-                if (col==N-1) { // Final columnas
+                if (col==N-1) { // Final columnas. Pasa a la siguiente fila y reinicia las columnas
                     auxCol = 0;
                     auxFila = fila +1;
-                }else {         // Final filas
+                }else {         // Sino es el final de las columnas, pasar a la siguiente columna.
                     auxCol = col +1;
                     auxFila = fila;
                 }
                 contadorSoluciones = contadorSoluciones + Resolver(tablero, auxCol, auxFila, N);
             }
-        }else {
+        }else { // Cuando es vacia la casilla, probar si se puede el valor 1 hasta 9
             for (int i=1; i<=9; i++) {
                 if (Comprobar(tablero, fila, col, i, N)) {
                     tablero[fila][col] = i;
+                    // Mismo if de antes, si final ... sino pues miro columnas...
                     if ((fila==N-1) && (col==N-1)) {
                         contadorSoluciones++;
                         
                     }else {
+                        
                         if (col==N-1) {
                             
-                            auxFila = fila++;
                             auxCol = 0;
+                            auxFila = fila+1;
                             
                         }else {
-                            auxCol = col++;
+                            
+                            auxCol = col+1;
                             auxFila = fila;
                         }
                         contadorSoluciones = contadorSoluciones + Resolver (tablero, auxCol, auxFila, N);
                     }
-                    tablero [fila][col] = 0;
+                    tablero [fila][col] = 0; // Desmarcar. No puede resolverlo ahora, lo marco otra vez como vacio o 0.
                 }
 
             }
