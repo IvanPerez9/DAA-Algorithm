@@ -26,7 +26,7 @@ public class MergeSort {
 		int length = array.length;
 		
 		for (int x=0; x<elem; x++) {
-		    System.out.println("Introduzca el elemento [" + x + "]");
+		    System.out.print("Introduzca el elemento [" + x + "] : ");
 		    array[x] = consola.nextInt();
 		}
 		
@@ -37,7 +37,7 @@ public class MergeSort {
 		
 		System.out.println();
 		System.out.println("Su array ordenado es: ");
-		ejercicio.mostrar(array);
+		System.out.println(Arrays.toString(array));
 		
 	}
 	
@@ -81,15 +81,4 @@ public class MergeSort {
 			merge(array, ini, mitad, last);
 		}
 	}
-	
-	public void mostrar (int [] arrayMuestra) {
-		
-		int n = arrayMuestra.length;
-		
-		//Recorrer hasta menos 1 que sino se va de length
-		for (int i=0; i<= n-1; i++) {
-			System.out.print(arrayMuestra[i] + " ");
-		}
-	}
-
 }
