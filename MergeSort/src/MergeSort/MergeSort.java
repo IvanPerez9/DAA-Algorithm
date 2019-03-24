@@ -68,6 +68,11 @@ public class MergeSort {
 			k++;
 			i++;
 		}
+		while(j<= last) {
+			array[k] = arrayAux[j];
+			k++;
+			j++;
+		}
 		
 	}
 	
